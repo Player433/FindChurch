@@ -1,0 +1,25 @@
+<%= csrf_meta_tag %>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <hgroup>
+      <h1><%= link_to "Find Church Admin", administration_path %></h1>
+      <h2>Administration Controller</h2>
+    </hgroup>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Search:</legend>
+        <input type="text" value="Search Our Website&hellip;" onFocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;">
+        <input type="submit" id="sf_submit" value="submit">
+      </fieldset>
+    </form>
+    <nav>
+      <ul>
+        <li><%= link_to "New Churches", controller: "administration", action: "newChurches" %></li>
+        <li><%= link_to "Church Management", controller: "administration", action: "churchManagement" %></li>
+        <li><a href="#">User Management</a></li>
+        <li><a href="#">Admin Management</a></li>
+        <li class="last"><%= link_to "Web Options", administration_webOptions_path %></li>
+      </ul>
+    </nav>
+  </header>
+</div>

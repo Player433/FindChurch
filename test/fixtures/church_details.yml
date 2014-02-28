@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  church_id: 
+  description: MyText
+  website: MyString
+  members: 1
+  school: MyString
+  rating: MyString
+
+two:
+  church_id: 
+  description: MyText
+  website: MyString
+  members: 1
+  school: MyString
+  rating: MyString

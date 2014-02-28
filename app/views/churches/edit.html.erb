@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Find Church Administration</title>
+<meta charset="iso-8859-1">
+
+<%= stylesheet_link_tag "administration/layout.css" %>
+    
+<%= javascript_include_tag "administration/html5shiv.js" %>
+    
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+	
+	<%= render "administration/headerMenu" %>
+
+<div class="wrapper row2">
+	<div id="container" class="clear">
+		<div id="homepage">
+			<h1>Editing Church</h1>
+			<section id="services" class="clear">
+				<article>
+					<%= render 'form' %>
+
+					<%= link_to 'Show', @church %> |
+					<%= link_to 'Back', administration_churchManagement_path %>
+				</article>
+				<article class = "last">
+					Maybe a google maps image will be placed here (or down below)
+					<%= render 'form' %>
+				</article>
+			</section>
+
+			<%= render "administration/subMenu" %>
+		</div>
+	</div>
+</div>
+
+<%= render "administration/footerMenu" %>
+
+</body>
+</html>
+
+
+

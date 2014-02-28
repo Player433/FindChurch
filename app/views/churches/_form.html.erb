@@ -1,0 +1,67 @@
+<%= form_for(@church) do |f| %>
+  <% if @church.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@church.errors.count, "error") %> prohibited this inbound_church from being saved:</h2>
+
+      <ul>
+      <% @church.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "fields"  %>
+  </div>
+  
+  <% if @church.details %>
+	  <%= fields_for @church.details do |churchDetail| %>
+	    <div class="field">
+	    	<%= churchDetail.label :description %><br>
+	    	<%= churchDetail.text_area :description, size: "48x5" %>
+	  	</div>
+	  	<div class="field">
+	    	<%= churchDetail.label :website %><br>
+	    	<%= churchDetail.text_field :website, class: "fields" %>
+	  	</div>
+	  <% end %>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, class: "fields" %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state, class: "fields" %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, class: "fields" %>
+  </div>
+  <div class="field">
+    <%= f.label :zipCode %><br>
+    <%= f.text_field :zipCode, class: "fields" %>
+  </div>
+  <div class="field">
+    <%= f.label :denomination %><br>
+    <%= select_tag "church[denomination]", options_for_select(Denomination.all_cached) %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude, class: "fields" %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude, class: "fields" %>
+  </div>
+  <div class="field">
+    <%= f.label :gmaps %><br>
+    <%= f.check_box :gmaps %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

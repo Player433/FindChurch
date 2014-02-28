@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @church.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @church.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @church.address %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @church.state %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @church.city %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @church.zipCode %>
+</p>
+
+<p>
+  <strong>Denomination:</strong>
+  <%= @church.denomination %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @church.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @church.longitude %>
+</p>
+
+<p>
+  <strong>Gmaps:</strong>
+  <%= @church.gmaps %>
+</p>
+
+<%= link_to 'Edit', edit_church_path(@church) %> |
+<%= link_to 'Back', administration_churchManagement_path %>

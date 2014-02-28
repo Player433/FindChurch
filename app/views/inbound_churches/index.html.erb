@@ -1,0 +1,45 @@
+<h1>Listing inbound_churches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Zipcode</th>
+      <th>Denomination</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Gmaps</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inbound_churches.each do |inbound_church| %>
+      <tr>
+        <td><%= inbound_church.name %></td>
+        <td><%= inbound_church.description %></td>
+        <td><%= inbound_church.address %></td>
+        <td><%= inbound_church.state %></td>
+        <td><%= inbound_church.city %></td>
+        <td><%= inbound_church.zipCode %></td>
+        <td><%= inbound_church.denomination %></td>
+        <td><%= inbound_church.latitude %></td>
+        <td><%= inbound_church.longitude %></td>
+        <td><%= inbound_church.gmaps %></td>
+        <td><%= link_to 'Show', inbound_church %></td>
+        <td><%= link_to 'Edit', edit_inbound_church_path(inbound_church) %></td>
+        <td><%= link_to 'Destroy', inbound_church, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inbound church', new_inbound_church_path %>

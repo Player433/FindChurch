@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @inbound_church.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @inbound_church.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @inbound_church.address %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @inbound_church.state %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @inbound_church.city %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @inbound_church.zipCode %>
+</p>
+
+<p>
+  <strong>Denomination:</strong>
+  <%= @inbound_church.denomination %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @inbound_church.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @inbound_church.longitude %>
+</p>
+
+<p>
+  <strong>Gmaps:</strong>
+  <%= @inbound_church.gmaps %>
+</p>
+
+<%= link_to 'Edit', edit_inbound_church_path(@inbound_church) %> |
+<%= link_to 'Back', inbound_churches_path %>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Find Church Administration</title>
+<meta charset="iso-8859-1">
+
+<%= stylesheet_link_tag "administration/layout.css" %>
+    
+<%= javascript_include_tag "administration/html5shiv.js" %>
+<%= javascript_include_tag "application" %>
+    
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+	
+	<%= render "headerMenu" %>
+
+<div class="wrapper row2">
+	<div id="container" class="clear">
+		<div id="homepage">
+			<%= render "mainMenu" %>
+			<%= render "subMenu" %>
+		</div>
+	</div>
+</div>
+
+<%= render "footerMenu" %>
+
+</body>
+</html>

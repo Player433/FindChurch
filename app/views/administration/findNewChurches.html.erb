@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Find Church Administration</title>
+<meta charset="iso-8859-1">
+
+<%= stylesheet_link_tag "administration/layout.css" %>
+    
+<%= javascript_include_tag "administration/html5shiv.js" %>
+<%= javascript_include_tag "application" %>
+    
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+	
+	<%= render "headerMenu" %>
+
+<div class="wrapper row2">
+	<div id="container" class="clear">
+		<div id="homepage">
+			<h1>Find New Churches</h1>
+			
+			<%= render "flashMessage" %>
+			
+			<section id="services" class="clear">
+				<div>
+					Enter search information and it will add them to the inbound churches list if they are unique.
+				</div>
+				
+				<div>
+					<form method="get">
+		  				Search Here: <%= text_field_tag(:search, params[:search], :placeholder =>"Zip, Address, State", :maxlength => "75") %>
+		  				<%= submit_tag("Search", :controller => "administration", :action => "findNewChurches", :name => nil) %>
+					</form>
+				</div>
+				
+				<% if defined?(@newChurchList) %>
+					<div>
+						<%= form_tag administration_addChurches_path do %>
+						<table>
+							<tr>
+								<th>Church Name</th>
+								<th>Address</th>
+								<th>Type</th>
+								<th>Add</th>
+							</tr>
+				
+							<% @newChurchList.each do |c| %>
+								<tr>
+									<td><%= c[:name] %></td>
+									<td><%= c[:vicinity] %></td>
+									<td><%= c[:full_data]["types"].to_sentence %></td>
+									<td><%= check_box_tag "newChurch_ids[]", c %></td>
+								</tr>
+							<% end %>
+						
+						</table>
+						
+						<%= submit_tag "Add Selected" %>
+						
+						<% end %>
+						
+					</div>
+				<% end %>
+				
+			</section>
+
+		</div>
+	</div>
+</div>
+
+<%= render "footerMenu" %>
+
+</body>
+</html>

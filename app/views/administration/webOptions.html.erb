@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Find Church Administration</title>
+<meta charset="iso-8859-1">
+
+<%= stylesheet_link_tag "administration/layout.css" %>
+    
+<%= javascript_include_tag "administration/html5shiv.js" %>
+<%= javascript_include_tag "application" %>
+    
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+	
+	<%= render "headerMenu" %>
+
+<div class="wrapper row2">
+	<div id="container" class="clear">
+		<div id="homepage">
+			
+			<%= render "flashMessage" %>
+			
+			<h1>Web Options</h1>
+			<section id="services" class="clear">
+				Change various settings on the application
+			</section>
+
+			<h1>Cache Options</h1>
+			<section id="latest" class="last clear">
+				<%= link_to "Clear Denomination Cache List", administration_clearCache_path %>
+				<p></p>
+			</section>
+			
+			<h1>Denomination Options</h1>
+			<section id="latest" class="last clear">
+				
+				<table>
+					<tr>
+						<th>Name</th>
+						<th></th>
+						<th></th>
+					</tr>
+					<% @denominations.each do |denomination| %>
+					<tr>
+						<td><%= denomination.name %>&nbsp;</td>
+						<td><%= denomination.id %></td>
+						<td><%= link_to 'Destroy', denomination_path(denomination), :method => :delete %></td>
+					</tr>
+					<% end %>
+				</table>
+				
+				<div>
+					<%= form_tag(administration_addDenomination_path) do %>
+	  					<%= label_tag(:denomination, "New Denomination:") %><%= text_field_tag(:denomination) %>
+	  					<%= submit_tag("Add") %>
+					<% end %>
+				</div>
+				
+			</section>
+			
+		</div>
+	</div>
+</div>
+
+<%= render "footerMenu" %>
+
+</body>
+</html>

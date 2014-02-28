@@ -1,0 +1,40 @@
+<body>
+
+    <section id="contentcontainer"> <!-- HTML5 section tag for the content 'section' -->
+
+    	<section>
+ 			<h2>Listing denominations</h2>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @denominations.each do |denomination| %>
+					<tr>
+						<td><%= denomination.name %>&nbsp;</td>
+						<td><%= link_to 'Show', denomination %>&nbsp;</td>
+						<td><%= link_to 'Edit', edit_denomination_path(denomination) %>&nbsp;</td>
+						<td><%= link_to 'Destroy', denomination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+
+			<br>
+
+			<%= link_to 'New Denomination', new_denomination_path %>
+
+		</section>
+    	
+    </section>
+</body>
+
+
+

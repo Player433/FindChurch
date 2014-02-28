@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Find Church Administration</title>
+<meta charset="iso-8859-1">
+
+<%= stylesheet_link_tag "administration/layout.css" %>
+    
+<%= javascript_include_tag "administration/html5shiv.js" %>
+<%= javascript_include_tag "application" %>
+    
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+	
+	<%= render "headerMenu" %>
+
+<div class="wrapper row2">
+	<div id="container" class="clear">
+		<div id="homepage">
+			
+			<%= render "flashMessage" %>
+			
+			<h1>New Churches</h1>
+			
+			<section id="services" class="clear">
+				<%= link_to 'Find New Churches', administration_findNewChurches_path %>
+				
+				<% if (!@newChurchList.empty?) %>
+				<div>
+					
+					<%= form_tag administration_moveToMain_path do %>
+					<table>
+						<tr>
+							<th>Id</th>
+							<th>Church Name</th>
+							<th>Address</th>
+							<th>City</th>
+							<th>State</th>
+							<th>ZipCode</th>
+							<th>Denomination</th>
+							<th>Website</th>
+							<th>Lat</th>
+							<th>Lng</th>
+							<th>Edit</th>
+							<th>Delete</th>
+							<th>Keep</th>
+						</tr>
+		
+						<% @newChurchList.each do |c| %>
+						<tr>
+							<td><%= c.id %></td>
+							<td><%= c.name %></td>
+							<td><%= c.address %></td>
+							<td><%= c.city %></td>
+							<td><%= c.state %></td>
+							<td><%= c.zipCode %></td>
+							<td><%= c.denomination %></td>
+							<td><%= c.website ? "yes" : "no" %></td>
+							<td><%= c.latitude ? "yes" : "no" %></td>
+							<td><%= c.longitude ? "yes" : "no" %></td>
+							<td><%= link_to 'Edit', edit_inbound_church_path(c) %></td>
+							<td><%= link_to 'Delete', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+							<td><%= check_box_tag "newChurch_ids[]", c.id %></td>
+						</tr>
+						<% end %>
+					</table>
+					<%= submit_tag "Keep Selected" %>
+					
+					<% end %>
+
+				</div>
+				<%= will_paginate @newChurchList %>
+				<% end %>
+			</section>
+		
+			<%= render "subMenu" %>
+		</div>
+	</div>
+</div>
+
+<%= render "footerMenu" %>
+
+</body>
+</html>

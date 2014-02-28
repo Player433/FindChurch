@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Find Church Administration</title>
+<meta charset="iso-8859-1">
+
+<%= stylesheet_link_tag "administration/layout.css" %>
+    
+<%= javascript_include_tag "administration/html5shiv.js" %>
+<%= javascript_include_tag "application" %>
+    
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+	
+	<%= render "headerMenu" %>
+
+<!-- content -->
+<div class="wrapper row2">
+  <div id="container" class="clear">
+  	
+    <div id="homepage">
+    	
+    	<%= render "flashMessage" %>
+    	
+    	<h1>Church Management</h1>
+		<section id="services" class="clear">
+			<div>
+				Manage existing churches.
+			</div>
+			
+			<div>
+				<table>
+					<tr>
+						<th>Id</th>
+						<th>Church Name</th>
+						<th>Address</th>
+						<th>City</th>
+						<th>State</th>
+						<th>ZipCode</th>
+						<th>Denomination</th>
+						<th>Latitude</th>
+						<th>Longitude</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+		
+				<% @churchList.each do |c| %>
+					<tr>
+						<td><%= c.id %></td>
+						<td><%= c.name %></td>
+						<td><%= c.address %></td>
+						<td><%= c.city %></td>
+						<td><%= c.state %></td>
+						<td><%= c.zipCode %></td>
+						<td><%= c.denomination %></td>
+						<td><%= c.latitude %></td>
+						<td><%= c.longitude %></td>
+						<td><%= link_to 'Edit', edit_church_path(c) %></td>
+						<td><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					</tr>
+				<% end %>
+				</table>
+				
+			</div>
+			<%= will_paginate @churchList %>
+		</section>
+      
+      <%= render "subMenu" %>
+      
+    </div>
+    <!-- / content body -->
+  </div>
+</div>
+
+<%= render "footerMenu" %>
+
+</body>
+</html>
