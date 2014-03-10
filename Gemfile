@@ -4,7 +4,11 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+
+# For Heroku
+gem 'pg'
+gem 'rails_12factor', group: :production
 
 # Devise
 gem 'devise', '3.1.0'
