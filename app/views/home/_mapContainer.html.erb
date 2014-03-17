@@ -1,30 +1,32 @@
 <section id="intro">
-	<% if flash[:notice] %>
-    	<p id="notice" ><%= flash[:notice] %></p> 
-	<% elsif flash[:alert] %>
-    	<p id="alert" ><%= flash[:alert] %></p>
-	<% end %>
-	
-	<h2 class="intro">Find a Church anywhere
-		<span class="sub">Looking for a new home?</span>
-			<form method="get" data-no-turbolink>
-  				<span class="sub">Search Here: <%= text_field_tag(:search, params[:search], :placeholder =>"Zip, Address, State", :maxlength => "75") %>
-  				<%= submit_tag("Search", :controller => "Home", :action => "index", :name => nil) %></span></h2><br /><br />
-  				<ul id="navList">
-  					<% @denominations.each do |d| %>
-  						<li><%= check_box_tag("selectedDenominations[]", d, params[:selectedDenominations] ? params[:selectedDenominations].include?(d) : false, :id => d) %>
-  							<%= label_tag d, d %></li>
-  					<% end %>
-  				</ul>
-  				
-  				<%= gmaps4rails(@json) %>
-	
-				<p>
-					Seach String: <%= params[:search] %>
-					<%= select_tag( "range", options_for_select(['5','10','20','50','100'], (params[:range] || '20')), :class => "rangeSelect") %>
-					<%= label_tag("range", "Search Range", :class => "rangeSelectLabel") %>
-				</p>
-  				
-			</form>
+  <% if flash[:notice] %>
+      <p id="notice" ><%= flash[:notice] %></p> 
+  <% elsif flash[:alert] %>
+      <p id="alert" ><%= flash[:alert] %></p>
+  <% end %>
+  
+  <h2 class="intro">Find a Church anywhere
+    <span class="sub">Looking for a new home?</span>
+      <form name="searchForm" method="get" data-no-turbolink>
+          <span class="sub">Search Here: <%= text_field_tag(:search, params[:search], :placeholder =>"Zip, Address, State", :maxlength => "75") %>
+          <%= hidden_field_tag :coordinates, params[:coordinates] %>
+          <%= submit_tag("Search", :controller => "Home", :action => "index", :name => nil, onclick => "geocode()") %></span></h2><br /><br />
+          <ul id="navList">
+            <% @denominations.each do |d| %>
+              <li><%= check_box_tag("selectedDenominations[]", d, params[:selectedDenominations] ? params[:selectedDenominations].include?(d) : false, :id => d) %>
+                <%= label_tag d, d %>
+              </li>
+            <% end %>
+          </ul>
+          
+          <%= gmaps4rails(@json) %>
+  
+        <p>
+          Seach String: <%= params[:search] %>
+          <%= select_tag( "range", options_for_select(['5','10','20','50','100'], (params[:range] || '20')), :class => "rangeSelect") %>
+          <%= label_tag("range", "Search Range", :class => "rangeSelectLabel") %>
+        </p>
+          
+      </form>
 
 </section>
