@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #Church.create(name: "", description: "Great Church", address: "", state: "MO", zipCode: "", city:"", denomination:"" )
 
-if(!Church.where(:name => "Son Life Church").exists?)
-  Church.create(name: "Son Life Church", address:"1203 Vandalia Street", state: "IL", zipCode: "62234", city:"Collinsville", denomination:"NonDenomination", latitude:"38.6823567", longitude:"-89.9778956")
+if(!Church.where(:name => "Navigation Church").exists?)
+  Church.create(name: "Navigation Church", address:"1205 Vandalia Street", state: "IL", zipCode: "62234", city:"Collinsville", denomination:"NonDenomination", latitude:"38.6823567", longitude:"-89.9778956")
 end
 
 

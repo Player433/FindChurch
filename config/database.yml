@@ -1,30 +1,28 @@
 production:
   adapter: postgresql
-    encoding: unicode
-    pool: 5
-    database: d6bcrgaggisk26
-    username: zkhusnxwryolwa
-    password: 9rm4EVOueIaS4JSvcFPPlVI3QI
-    host: ec2-54-225-101-64.compute-1.amazonaws.com
-    port: 5432
+  encoding: unicode
+  pool: 5
+  database: d6bcrgaggisk26
+  username: zkhusnxwryolwa
+  password: 9rm4EVOueIaS4JSvcFPPlVI3QI
+  host: ec2-54-225-101-64.compute-1.amazonaws.com
+  port: 5432
 
 development:
-    adapter: postgresql
-    encoding: unicode
-    pool: 5
-    database: d6bcrgaggisk26
-    username: zkhusnxwryolwa
-    password: 9rm4EVOueIaS4JSvcFPPlVI3QI
-    host: ec2-54-225-101-64.compute-1.amazonaws.com
-    port: 5432
+  adapter: mysql2
+  encoding: utf8
+  database: c9
+  username: <%=ENV['C9_USER']%>
+  host: <%=ENV['IP']%>
+  password:
 
 test:
-    adapter: postgresql
-    encoding: unicode
-    pool: 5
-    database: d6bcrgaggisk26
-    username: zkhusnxwryolwa
-    password: 9rm4EVOueIaS4JSvcFPPlVI3QI
-    host: ec2-54-225-101-64.compute-1.amazonaws.com
-    port: 5432
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: d6bcrgaggisk26
+  username: zkhusnxwryolwa
+  password: 9rm4EVOueIaS4JSvcFPPlVI3QI
+  host: ec2-54-225-101-64.compute-1.amazonaws.com
+  port: 5432
 
