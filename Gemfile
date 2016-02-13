@@ -6,20 +6,18 @@ gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
-# For Heroku
+# Postgres Database Connector
 gem 'pg', '0.18.4'
 
-# Devise
+# Devise + Bcrypt
 gem 'devise', '3.5.6'
+gem 'bcrypt', '3.1.10'
 
 # Google Maps for Rails
 gem 'gmaps4rails', '2.1.2'
 
 # Rails GeoCoder
 gem "geocoder", "1.3.0"
-
-# Required by Devise
-gem 'bcrypt-ruby', '3.1.5', :require => 'bcrypt'
 
 # Pagination support
 gem 'will_paginate', '3.1.0'
@@ -47,14 +45,6 @@ gem 'jquery-rails', '4.0.4'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '2.5.3'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.4.1'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
